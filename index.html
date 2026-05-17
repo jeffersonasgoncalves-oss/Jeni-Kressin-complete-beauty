@@ -1561,6 +1561,347 @@
     .carousel-arrow.next { right: 6px; }
     .cat-tab { padding: 10px 20px; font-size: 10px; }
   }
+
+  /* ════════════════════════════════════════
+     RATING SUMMARY BAR
+  ════════════════════════════════════════ */
+  .rating-summary-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 32px auto 0;
+    max-width: 680px;
+    background: var(--white);
+    border: 1px solid rgba(201,168,76,0.22);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(15,35,71,0.08);
+    overflow: hidden;
+  }
+  .rsb-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 24px 32px;
+    flex: 1;
+  }
+  .rsb-cta-block {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 20px 28px;
+  }
+  .rsb-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(201,168,76,0.2);
+    flex-shrink: 0;
+  }
+  .rsb-logo {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #4285F4;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Jost', sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(66,133,244,0.3);
+  }
+  .rsb-logo.jk-logo {
+    background: linear-gradient(135deg, var(--royal-deep), var(--royal));
+    font-size: 13px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(26,58,110,0.3);
+  }
+  .rsb-info { display: flex; flex-direction: column; gap: 2px; }
+  .rsb-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--royal-deep);
+    line-height: 1;
+  }
+  .rsb-stars { color: #fbbf24; font-size: 14px; letter-spacing: 2px; line-height: 1; }
+  .rsb-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+  .rsb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--royal-deep);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none;
+    border-radius: 50px;
+    padding: 13px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(201,168,76,0.3);
+    white-space: nowrap;
+  }
+  .rsb-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(201,168,76,0.45);
+  }
+  .rsb-hint {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .rating-summary-bar { flex-direction: column; max-width: 340px; }
+    .rsb-divider { width: 60px; height: 1px; }
+    .rsb-block { justify-content: center; padding: 18px 24px; }
+  }
+
+  /* ════════════════════════════════════════
+     MODAL OVERLAY
+  ════════════════════════════════════════ */
+  .rv-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8,17,31,0.72);
+    backdrop-filter: blur(6px);
+    z-index: 8000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeOverlay 0.3s ease;
+  }
+  @keyframes fadeOverlay {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .rv-modal {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px 40px 36px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 32px 80px rgba(8,17,31,0.3);
+    animation: slideModal 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  @keyframes slideModal {
+    from { opacity: 0; transform: translateY(32px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
+  }
+  .rv-close {
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.25);
+    background: transparent;
+    color: var(--text-light);
+    font-size: 11px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .rv-close:hover { background: var(--gold); color: var(--royal-deep); border-color: var(--gold); }
+
+  /* cabeçalho */
+  .rv-modal-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .rv-modal-logo {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--royal-deep), var(--royal));
+    color: var(--gold-light);
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .rv-modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--royal-deep);
+    margin: 0 0 2px;
+  }
+  .rv-modal-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  /* campos */
+  .rv-field { margin-bottom: 20px; }
+  .rv-label {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--royal-deep);
+    margin-bottom: 8px;
+  }
+  .rv-req { color: var(--gold); margin-left: 2px; }
+  .rv-optional { color: var(--text-light); font-size: 10px; text-transform: none; letter-spacing: 0; }
+  .rv-input {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--royal-deep);
+    background: #fafaf8;
+    border: 1px solid rgba(42,82,152,0.18);
+    border-radius: 12px;
+    padding: 13px 16px;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .rv-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+    background: #fff;
+  }
+  .rv-input.error { border-color: #e11d48; box-shadow: 0 0 0 3px rgba(225,29,72,0.1); }
+  .rv-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232a5298' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+  .rv-textarea { resize: vertical; min-height: 80px; }
+  .rv-char { font-family: 'Jost', sans-serif; font-size: 10px; color: var(--text-light); text-align: right; margin-top: 4px; }
+  .rv-error { display: none; font-family: 'Jost', sans-serif; font-size: 11px; color: #e11d48; margin-top: 5px; }
+  .rv-error.visible { display: block; }
+
+  /* estrelas de input */
+  .rv-stars-input {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .rv-star {
+    font-size: 36px;
+    color: #e2e8f0;
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.15s ease;
+    line-height: 1;
+    user-select: none;
+  }
+  .rv-star.hovered, .rv-star.selected { color: #fbbf24; }
+  .rv-star:hover { transform: scale(1.15); }
+  .rv-star-hint {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-light);
+    min-height: 16px;
+    transition: color 0.2s;
+  }
+  .rv-star-hint.filled { color: #fbbf24; font-weight: 400; }
+
+  /* radio */
+  .rv-radio-group { display: flex; gap: 20px; flex-wrap: wrap; }
+  .rv-radio {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 300;
+    color: var(--text-mid); cursor: pointer;
+  }
+  .rv-radio input[type="radio"] { accent-color: var(--royal); width: 15px; height: 15px; }
+
+  /* botão submit */
+  .rv-submit {
+    width: 100%;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--royal-deep);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none;
+    border-radius: 50px;
+    padding: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(201,168,76,0.3);
+  }
+  .rv-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(201,168,76,0.45); }
+
+  /* sucesso */
+  .rv-success {
+    text-align: center;
+    padding: 20px 0 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .rv-success-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--royal-deep);
+    font-size: 24px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(201,168,76,0.4);
+    margin-bottom: 4px;
+  }
+  .rv-success h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--royal-deep);
+    margin: 0;
+  }
+  .rv-success p {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* cards de avaliação do usuário */
+  #userReviewsGrid .depo-card {
+    animation: fadeInCard 0.5s ease both;
+  }
+  @keyframes fadeInCard {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 520px) {
+    .rv-modal { padding: 28px 20px 24px; border-radius: 18px; }
+  }
 </style>
 </head>
 <body>
@@ -1929,17 +2270,43 @@
     <span class="section-eyebrow">Avaliações</span>
     <h2 class="section-title">O que dizem quem <em>viveu</em> a experiência</h2>
     <div class="gold-divider"></div>
-    <div class="google-badge reveal">
-      <span class="stars">★★★★★</span>
-      <span>Google Reviews · 5.0 Estrelas</span>
+
+    <!-- Painel de notas: Google + Próprio -->
+    <div class="rating-summary-bar reveal">
+      <div class="rsb-block">
+        <div class="rsb-logo">G</div>
+        <div class="rsb-info">
+          <div class="rsb-score" id="googleScore">5.0</div>
+          <div class="rsb-stars">★★★★★</div>
+          <div class="rsb-label">Google Reviews</div>
+        </div>
+      </div>
+      <div class="rsb-divider"></div>
+      <div class="rsb-block">
+        <div class="rsb-logo jk-logo">JK</div>
+        <div class="rsb-info">
+          <div class="rsb-score" id="siteScore">5.0</div>
+          <div class="rsb-stars" id="siteStarsDisplay">★★★★★</div>
+          <div class="rsb-label">Jeni Kressin · <span id="totalReviewsLabel">6 avaliações</span></div>
+        </div>
+      </div>
+      <div class="rsb-divider"></div>
+      <div class="rsb-block rsb-cta-block">
+        <button class="rsb-btn" id="openReviewBtn">
+          <span>✦</span> Deixe sua avaliação
+        </button>
+        <p class="rsb-hint">Compartilhe sua experiência</p>
+      </div>
     </div>
   </div>
 
+  <!-- Tabs filtro -->
   <div class="depo-tabs reveal">
-    <button class="depo-tab active" onclick="filterDepo('cliente', this)">Clientes do Salão</button>
-    <button class="depo-tab" onclick="filterDepo('aluna', this)">Alunas dos Cursos</button>
+    <button class="depo-tab active" id="tabCliente" onclick="filterDepo('cliente', this)">Clientes do Salão</button>
+    <button class="depo-tab" id="tabAluna" onclick="filterDepo('aluna', this)">Alunas dos Cursos</button>
   </div>
 
+  <!-- Grid de depoimentos -->
   <div class="depo-grid stagger" id="depoGrid">
     <div class="depo-card reveal" data-tipo="cliente">
       <div class="depo-stars">★★★★★</div>
@@ -1952,7 +2319,6 @@
         </div>
       </div>
     </div>
-
     <div class="depo-card reveal" data-tipo="cliente">
       <div class="depo-stars">★★★★★</div>
       <p class="depo-text">"A maquiagem para o meu casamento foi perfeita. Durou o dia todo, ficou exatamente como eu queria — delicada, sofisticada e muito eu. A Jeni entendeu tudo!"</p>
@@ -1964,7 +2330,6 @@
         </div>
       </div>
     </div>
-
     <div class="depo-card reveal" data-tipo="cliente">
       <div class="depo-stars">★★★★★</div>
       <p class="depo-text">"Fiz design de sobrancelha e hidratação e saí transformada. O espaço é lindo, o atendimento é acolhedor. Virei fã! Já indiquei para todas as minhas amigas."</p>
@@ -1976,7 +2341,6 @@
         </div>
       </div>
     </div>
-
     <div class="depo-card reveal" data-tipo="aluna">
       <div class="depo-stars">★★★★★</div>
       <p class="depo-text">"Antes do curso da Jeni eu tinha medo de cobrar o que eu realmente valia. Hoje tenho agenda cheia e uma técnica que me diferencia. Ela não ensina só beleza — ensina postura profissional."</p>
@@ -1988,7 +2352,6 @@
         </div>
       </div>
     </div>
-
     <div class="depo-card reveal" data-tipo="aluna">
       <div class="depo-stars">★★★★★</div>
       <p class="depo-text">"O curso de nail designer foi o melhor investimento que já fiz. Em 3 meses já tinha quitado o valor com o retorno. A Jeni é muito didática e apaixonada pelo que faz."</p>
@@ -2000,7 +2363,6 @@
         </div>
       </div>
     </div>
-
     <div class="depo-card reveal" data-tipo="aluna">
       <div class="depo-stars">★★★★★</div>
       <p class="depo-text">"Fiz a mentoria para o meu salão e foi um divisor de águas. Em 60 dias aumentei meu faturamento em 40% com as estratégias que ela me passou. Recomendo de olhos fechados."</p>
@@ -2013,7 +2375,126 @@
       </div>
     </div>
   </div>
+
+  <!-- Avaliações dinâmicas dos usuários -->
+  <div class="depo-grid stagger" id="userReviewsGrid" style="margin-top:0;"></div>
+
 </section>
+
+<!-- ══════════════════════════════════════
+     MODAL DE AVALIAÇÃO
+══════════════════════════════════════ -->
+<div id="reviewModal" class="rv-modal-overlay" aria-modal="true" role="dialog" aria-label="Deixar avaliação" style="display:none;">
+  <div class="rv-modal">
+    <button class="rv-close" id="closeReviewBtn" aria-label="Fechar">&#10005;</button>
+
+    <!-- Cabeçalho do modal -->
+    <div class="rv-modal-head">
+      <div class="rv-modal-logo">JK</div>
+      <div>
+        <h3 class="rv-modal-title">Jeni Kressin Complete Beauty</h3>
+        <p class="rv-modal-sub">Sua experiência importa para nós ✦</p>
+      </div>
+    </div>
+
+    <!-- Formulário -->
+    <div class="rv-form" id="reviewForm">
+
+      <!-- Estrelas -->
+      <div class="rv-field">
+        <label class="rv-label">Sua nota <span class="rv-req">*</span></label>
+        <div class="rv-stars-input" id="starsInput" role="group" aria-label="Selecionar nota de 1 a 5">
+          <span class="rv-star" data-v="1" tabindex="0" role="button" aria-label="1 estrela">★</span>
+          <span class="rv-star" data-v="2" tabindex="0" role="button" aria-label="2 estrelas">★</span>
+          <span class="rv-star" data-v="3" tabindex="0" role="button" aria-label="3 estrelas">★</span>
+          <span class="rv-star" data-v="4" tabindex="0" role="button" aria-label="4 estrelas">★</span>
+          <span class="rv-star" data-v="5" tabindex="0" role="button" aria-label="5 estrelas">★</span>
+        </div>
+        <div class="rv-star-hint" id="starHint">Toque nas estrelas para avaliar</div>
+      </div>
+
+      <!-- Nome -->
+      <div class="rv-field">
+        <label class="rv-label" for="rvName">Seu nome <span class="rv-req">*</span></label>
+        <input class="rv-input" id="rvName" type="text" placeholder="Ex: Ana Paula S." maxlength="60" autocomplete="name" />
+        <div class="rv-error" id="rvNameErr">Por favor, informe seu nome.</div>
+      </div>
+
+      <!-- Procedimento -->
+      <div class="rv-field">
+        <label class="rv-label" for="rvProc">Procedimento realizado <span class="rv-req">*</span></label>
+        <select class="rv-input rv-select" id="rvProc">
+          <option value="">Selecione o procedimento...</option>
+          <optgroup label="Cílios">
+            <option>Fox Eyes</option>
+            <option>Volume Russo</option>
+            <option>Volume Chique</option>
+            <option>Volume Brasileiro</option>
+            <option>BBR</option>
+            <option>Extensão de Cílios</option>
+          </optgroup>
+          <optgroup label="Sobrancelha">
+            <option>Design de Sobrancelha</option>
+            <option>Tintura de Sobrancelha</option>
+          </optgroup>
+          <optgroup label="Unhas">
+            <option>Manicure</option>
+            <option>Pedicure</option>
+            <option>Alongamento em Gel</option>
+            <option>Fibra de Vidro</option>
+            <option>Soft Gel</option>
+            <option>Esmaltação em Gel</option>
+          </optgroup>
+          <optgroup label="Cabelo">
+            <option>Corte de Cabelo</option>
+            <option>Coloração</option>
+            <option>Hidratação</option>
+          </optgroup>
+          <optgroup label="Maquiagem">
+            <option>Maquiagem Social</option>
+            <option>Maquiagem de Noiva</option>
+          </optgroup>
+          <optgroup label="Cursos">
+            <option>Curso de Extensão de Cílios</option>
+            <option>Curso de Maquiagem</option>
+            <option>Curso de Sobrancelha</option>
+            <option>Curso de Manicure / Pedicure</option>
+            <option>Curso de Nail Designer</option>
+            <option>Mentoria de Salão</option>
+          </optgroup>
+        </select>
+        <div class="rv-error" id="rvProcErr">Por favor, selecione um procedimento.</div>
+      </div>
+
+      <!-- Tipo -->
+      <div class="rv-field">
+        <label class="rv-label">Você é <span class="rv-req">*</span></label>
+        <div class="rv-radio-group">
+          <label class="rv-radio"><input type="radio" name="rvTipo" value="cliente" checked> <span>Cliente do Salão</span></label>
+          <label class="rv-radio"><input type="radio" name="rvTipo" value="aluna"> <span>Aluna dos Cursos</span></label>
+        </div>
+      </div>
+
+      <!-- Comentário -->
+      <div class="rv-field">
+        <label class="rv-label" for="rvComment">Comentário <span class="rv-optional">(opcional)</span></label>
+        <textarea class="rv-input rv-textarea" id="rvComment" placeholder="Conte sua experiência..." maxlength="400" rows="3"></textarea>
+        <div class="rv-char" id="rvCharCount">0 / 400</div>
+      </div>
+
+      <!-- Botão -->
+      <button class="rv-submit" id="rvSubmit">Publicar avaliação</button>
+    </div>
+
+    <!-- Tela de sucesso -->
+    <div class="rv-success" id="reviewSuccess" style="display:none;">
+      <div class="rv-success-icon">✦</div>
+      <h3>Obrigada pela avaliação!</h3>
+      <p>Sua opinião foi publicada e já aparece na nossa seção de avaliações.</p>
+      <button class="rv-submit" id="rvSuccessClose">Fechar</button>
+    </div>
+  </div>
+</div>
 
 <!-- LOCALIZAÇÃO -->
 <section id="localizacao">
@@ -2518,6 +2999,287 @@
   /* ── inicia autoplay do painel inicial ── */
   var firstPanel = document.querySelector('.carousel-panel.active');
   if (firstPanel) startAutoplay(firstPanel);
+
+})();
+</script>
+
+
+<script>
+/* ════════════════════════════════════════
+   SISTEMA DE AVALIAÇÃO — JENI KRESSIN
+════════════════════════════════════════ */
+(function() {
+  'use strict';
+
+  /* ── Dados padrão (6 avaliações base, todas 5 estrelas) ── */
+  var BASE_REVIEWS = [
+    { nome:'Ana Paula S.', proc:'Extensão de Cílios', tipo:'cliente', nota:5, comentario:'Meus cílios ficaram incríveis! A Jeni tem uma delicadeza e uma precisão que eu nunca vi.' },
+    { nome:'Camila R.',    proc:'Maquiagem de Noiva', tipo:'cliente', nota:5, comentario:'A maquiagem para o meu casamento foi perfeita. Durou o dia todo!' },
+    { nome:'Fernanda L.',  proc:'Sobrancelha & Cabelo',tipo:'cliente',nota:5, comentario:'Saí transformada. O espaço é lindo, o atendimento é acolhedor.' },
+    { nome:'Mariana T.',   proc:'Extensão de Cílios', tipo:'aluna',  nota:5, comentario:'Hoje tenho agenda cheia e uma técnica que me diferencia.' },
+    { nome:'Juliane B.',   proc:'Nail Designer',      tipo:'aluna',  nota:5, comentario:'Melhor investimento. Em 3 meses já tinha quitado o valor.' },
+    { nome:'Renata M.',    proc:'Gestão de Salão',    tipo:'aluna',  nota:5, comentario:'Em 60 dias aumentei meu faturamento em 40%.' }
+  ];
+
+  /* ── Storage com fallback ── */
+  var STORAGE_KEY = 'jk_reviews_v1';
+  function loadReviews() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch(e) { return []; }
+  }
+  function saveReviews(arr) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch(e) {}
+  }
+
+  /* ── Calcula nota média ── */
+  function calcScore(userReviews) {
+    var all = BASE_REVIEWS.concat(userReviews);
+    if (!all.length) return 5.0;
+    var sum = all.reduce(function(acc, r){ return acc + r.nota; }, 0);
+    return Math.round((sum / all.length) * 10) / 10;
+  }
+
+  /* ── Estrelas como texto ── */
+  var HINTS = ['', 'Ruim', 'Regular', 'Bom', 'Muito bom', 'Excelente'];
+  function starsText(n) {
+    var s = '';
+    for (var i = 1; i <= 5; i++) s += i <= n ? '★' : '☆';
+    return s;
+  }
+  function starsHTML(n) {
+    var s = '';
+    for (var i = 1; i <= 5; i++) s += '<span style="color:' + (i <= n ? '#fbbf24' : '#e2e8f0') + '">★</span>';
+    return s;
+  }
+
+  /* ── Cores avatar ── */
+  var AVATAR_COLORS = [
+    'linear-gradient(135deg,#1a3a6e,#2a5298)',
+    'linear-gradient(135deg,#c9a84c,#e2c47a)',
+    'linear-gradient(135deg,#6b21a8,#a855f7)',
+    'linear-gradient(135deg,#be123c,#f43f5e)',
+    'linear-gradient(135deg,#0f766e,#14b8a6)',
+    'linear-gradient(135deg,#1d4ed8,#60a5fa)',
+    'linear-gradient(135deg,#b45309,#f59e0b)',
+    'linear-gradient(135deg,#065f46,#34d399)',
+  ];
+  function avatarColor(nome) {
+    var idx = (nome.charCodeAt(0) || 0) % AVATAR_COLORS.length;
+    return AVATAR_COLORS[idx];
+  }
+
+  /* ── Atualiza painel de score ── */
+  function updateScorePanel(userReviews) {
+    var score = calcScore(userReviews);
+    var total = BASE_REVIEWS.length + userReviews.length;
+    var el = document.getElementById('siteScore');
+    var elStars = document.getElementById('siteStarsDisplay');
+    var elTotal = document.getElementById('totalReviewsLabel');
+    if (el) el.textContent = score.toFixed(1);
+    if (elStars) {
+      var full = Math.round(score);
+      var s = '';
+      for (var i = 1; i <= 5; i++) s += i <= full ? '★' : '☆';
+      elStars.textContent = s;
+    }
+    if (elTotal) elTotal.textContent = total + ' avaliação' + (total !== 1 ? 'ões' : '');
+  }
+
+  /* ── Renderiza cards de usuários ── */
+  function renderUserReviews(userReviews) {
+    var grid = document.getElementById('userReviewsGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    userReviews.forEach(function(r) {
+      var card = document.createElement('div');
+      card.className = 'depo-card reveal';
+      card.setAttribute('data-tipo', r.tipo);
+      var comentHTML = r.comentario
+        ? '<p class="depo-text">&ldquo;' + escHtml(r.comentario) + '&rdquo;</p>'
+        : '';
+      card.innerHTML =
+        '<div class="depo-stars">' + starsHTML(r.nota) + '</div>' +
+        comentHTML +
+        '<div class="depo-author">' +
+          '<div class="depo-avatar" style="background:' + avatarColor(r.nome) + ';">' + escHtml(r.nome.charAt(0).toUpperCase()) + '</div>' +
+          '<div class="depo-author-info">' +
+            '<div class="depo-author-name">' + escHtml(r.nome) + '</div>' +
+            '<div class="depo-author-type">Cliente · ' + escHtml(r.proc) + '</div>' +
+          '</div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  /* ── Init ── */
+  var userReviews = loadReviews();
+  updateScorePanel(userReviews);
+  renderUserReviews(userReviews);
+
+  /* ── Modal ── */
+  var modal    = document.getElementById('reviewModal');
+  var openBtn  = document.getElementById('openReviewBtn');
+  var closeBtn = document.getElementById('closeReviewBtn');
+  var form     = document.getElementById('reviewForm');
+  var success  = document.getElementById('reviewSuccess');
+  var successCloseBtn = document.getElementById('rvSuccessClose');
+
+  function openModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    resetForm();
+  }
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (successCloseBtn) successCloseBtn.addEventListener('click', closeModal);
+
+  /* Fechar ao clicar fora */
+  if (modal) modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  /* ESC */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal && modal.style.display === 'flex') closeModal();
+  });
+
+  /* ── Estrelas de input ── */
+  var selectedStar = 0;
+  var stars = document.querySelectorAll('.rv-star');
+  var hint  = document.getElementById('starHint');
+
+  stars.forEach(function(star) {
+    star.addEventListener('mouseenter', function() {
+      var v = parseInt(star.getAttribute('data-v'));
+      highlightStars(v, false);
+      if (hint) { hint.textContent = HINTS[v]; hint.className = 'rv-star-hint filled'; }
+    });
+    star.addEventListener('mouseleave', function() {
+      highlightStars(selectedStar, true);
+      if (hint) {
+        hint.textContent = selectedStar ? HINTS[selectedStar] : 'Toque nas estrelas para avaliar';
+        hint.className = 'rv-star-hint' + (selectedStar ? ' filled' : '');
+      }
+    });
+    star.addEventListener('click', function() {
+      selectedStar = parseInt(star.getAttribute('data-v'));
+      highlightStars(selectedStar, true);
+      if (hint) { hint.textContent = HINTS[selectedStar]; hint.className = 'rv-star-hint filled'; }
+    });
+    star.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        selectedStar = parseInt(star.getAttribute('data-v'));
+        highlightStars(selectedStar, true);
+      }
+    });
+  });
+
+  function highlightStars(n, persist) {
+    stars.forEach(function(s) {
+      var v = parseInt(s.getAttribute('data-v'));
+      s.classList.toggle('hovered',  v <= n && !persist);
+      s.classList.toggle('selected', v <= n &&  persist);
+    });
+  }
+
+  /* ── Contador de caracteres ── */
+  var textarea  = document.getElementById('rvComment');
+  var charCount = document.getElementById('rvCharCount');
+  if (textarea && charCount) {
+    textarea.addEventListener('input', function() {
+      charCount.textContent = textarea.value.length + ' / 400';
+    });
+  }
+
+  /* ── Validação e Submit ── */
+  var submitBtn = document.getElementById('rvSubmit');
+  if (submitBtn) submitBtn.addEventListener('click', handleSubmit);
+
+  function handleSubmit() {
+    var nome   = document.getElementById('rvName');
+    var proc   = document.getElementById('rvProc');
+    var tipo   = document.querySelector('input[name="rvTipo"]:checked');
+    var comment= document.getElementById('rvComment');
+    var nomeErr= document.getElementById('rvNameErr');
+    var procErr= document.getElementById('rvProcErr');
+    var valid  = true;
+
+    /* Reset errors */
+    nome.classList.remove('error');
+    proc.classList.remove('error');
+    if (nomeErr) nomeErr.classList.remove('visible');
+    if (procErr) procErr.classList.remove('visible');
+
+    if (!selectedStar) {
+      if (hint) { hint.textContent = '⚠ Selecione uma nota'; hint.style.color = '#e11d48'; }
+      valid = false;
+    }
+    if (!nome.value.trim()) {
+      nome.classList.add('error');
+      if (nomeErr) nomeErr.classList.add('visible');
+      valid = false;
+    }
+    if (!proc.value) {
+      proc.classList.add('error');
+      if (procErr) procErr.classList.add('visible');
+      valid = false;
+    }
+    if (!valid) return;
+
+    var newReview = {
+      nome:       nome.value.trim(),
+      proc:       proc.value,
+      tipo:       tipo ? tipo.value : 'cliente',
+      nota:       selectedStar,
+      comentario: comment ? comment.value.trim() : '',
+      data:       new Date().toISOString()
+    };
+
+    userReviews.unshift(newReview);
+    saveReviews(userReviews);
+    updateScorePanel(userReviews);
+    renderUserReviews(userReviews);
+
+    /* Mostra sucesso */
+    form.style.display    = 'none';
+    success.style.display = 'flex';
+  }
+
+  function resetForm() {
+    selectedStar = 0;
+    highlightStars(0, true);
+    if (hint) { hint.textContent = 'Toque nas estrelas para avaliar'; hint.className = 'rv-star-hint'; hint.style.color = ''; }
+    var nome = document.getElementById('rvName');
+    var proc = document.getElementById('rvProc');
+    var comment = document.getElementById('rvComment');
+    var charCnt = document.getElementById('rvCharCount');
+    if (nome) { nome.value = ''; nome.classList.remove('error'); }
+    if (proc) { proc.value = ''; proc.classList.remove('error'); }
+    if (comment) comment.value = '';
+    if (charCnt) charCnt.textContent = '0 / 400';
+    var tipo = document.querySelector('input[name="rvTipo"][value="cliente"]');
+    if (tipo) tipo.checked = true;
+    var nErr = document.getElementById('rvNameErr');
+    var pErr = document.getElementById('rvProcErr');
+    if (nErr) nErr.classList.remove('visible');
+    if (pErr) pErr.classList.remove('visible');
+    form.style.display    = 'block';
+    success.style.display = 'none';
+  }
 
 })();
 </script>
